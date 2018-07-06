@@ -1,0 +1,3 @@
+[submodule "complex_constraints/pypsdd"]
+	path = complex_constraints/pypsdd
+	url = https://github.com/art-ai/pypsdd
