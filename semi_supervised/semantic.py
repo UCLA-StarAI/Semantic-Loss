@@ -114,7 +114,7 @@ def main(_):
   y_mlp, keep_prob = deepnn(x)
 
   batch_number = tf.shape(y_mlp)[0]
-  label_examples = tf.greater(tf.reduce_max(y_, axis=1), tf.zeros([batch_number, 1]))
+  label_examples = tf.greater(tf.reduce_max(y_, axis=1), tf.zeros([batch_number,]))
   label_examples = tf.cast(label_examples, tf.float32)
 
   with tf.name_scope('cross_entropy'):
@@ -123,7 +123,7 @@ def main(_):
     
   with tf.name_scope('wmc'):
     normalized_logits = tf.nn.sigmoid(y_mlp)
-    wmc_tmp = tf.zeros([batch_number, 1])
+    wmc_tmp = tf.zeros([batch_number,])
     for i in range(10):
         one_situation = tf.concat(
           [tf.concat([tf.ones([batch_number, i]), tf.zeros([batch_number, 1])], axis=1),
@@ -133,7 +133,7 @@ def main(_):
   wmc = tf.reduce_mean(wmc_tmp)
 
   with tf.name_scope('loss'):
-    unlabel_examples = tf.ones([batch_number, 1]) - label_examples
+    unlabel_examples = tf.ones([batch_number,]) - label_examples
     log_wmc = tf.log(wmc_tmp)
     loss = -0.0005*tf.multiply(unlabel_examples, log_wmc) - 0.0005*tf.multiply(label_examples, log_wmc) + tf.multiply(label_examples, cross_entropy)
     loss = tf.reduce_mean(loss)
