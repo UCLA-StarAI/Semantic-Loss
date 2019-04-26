@@ -70,7 +70,7 @@ def deepnn(x_images):
 
   # Map the 1024 features to 10 classes, one for each digit
   with tf.name_scope('fc6'):
-    y_mlp = tf.contrib.layers.fully_connected(h_fc5, 10, activation_fn = None)
+    y_mlp = tf.contrib.layers.fully_connected(h_fc5_drop, 10, activation_fn = None)
 
   return y_mlp, keep_prob
 
