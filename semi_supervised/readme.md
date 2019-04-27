@@ -8,12 +8,12 @@ Please provide the data_path , num_labeled, batch_size as arguments when running
 You may need to re-tune hyperparameters slightly to get the performance reported in the paper. However, even without any hyper-parameter tuning, you should observe a significant improvement compared with your base model for semi-supervised learning tasks.
 
 Hyper-parameters' tunning ranges are as follows
-	batch size: [10, 16, 32, 64, 128]
+	batch size: [10, 16, 32, 64, 128, 256, 512]
 	standard deviation of guassian noise: [0.1, 0.2, 0.3, 0.4, 0.5]
-	weight of semantic loss: [0.1, 0.01, 0.005, 0.001, 0.0005, 0.0001]
+	weight of semantic loss: [1.0, 0.5, 0,25, 0.1, 0.01, 0.005, 0.001, 0.0005, 0.0001]
 	learning rate of Adam optimizer: [1e-5, 1e-4, 1e-3]
 	alpha of leaky relu: [0.01, 0.05]
-In our experience, different values of the last two hyper-parameters do not cause noticeable difference in our model's prediction accuracy. So if you eventually decided to do parameter tuning over our model, you can start with focusing on the first three while using the default values in the code for the last two.
+In our experience, different values of the last two hyper-parameters do not cause noticeable difference in our model's prediction accuracy. So if you eventually decided to do parameter tuning over our model, you can start with focusing on the first three while using the default values in the code for the last two. It recently occured to us that the results on the setting with 100 labeled samples are very volatile; they are even afffected by the system environment, tensorflow version, etc.. We would suggest paying more attention to our results on the settings with more labeled samples, which are more stable and easier to reproduce.
 
 Note the code is written in python 3.6. And we don't guarantee backward compatibility with python2. 
 
