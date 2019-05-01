@@ -15,6 +15,8 @@ Hyper-parameters' tunning ranges are as follows
 	alpha of leaky relu: [0.01, 0.05]
 In our experience, different values of the last two hyper-parameters do not cause noticeable difference in our model's prediction accuracy. So if you eventually decided to do parameter tuning over our model, you can start with focusing on the first three while using the default values in the code for the last two. It recently occured to us that the results on the setting with 100 labeled samples are very volatile; they are even afffected by the system environment, tensorflow version, etc.. We would suggest paying more attention to our results on the settings with more labeled samples, which are more stable and easier to reproduce.
 
+We understand it would be very time consuming to do a full round of parameter tuning, especially on the cifar-10 dataset. To faciliate replication, we created a google drive repo that stores the exact model, input data and hyper-parameter settings we used when we ran the cifar-10 experiments. Please use the following link to download it: https://drive.google.com/drive/u/0/folders/128gYP3bHu7pvdlY-qbrS0UmO43Azjvmj
+
 Note the code is written in python 3.6. And we don't guarantee backward compatibility with python2. 
 
 If you have further questions regarding our experiments, please don't hesitate to reach out to me at yliang@cs.ucla.edu.
